@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Symfony Live 2019 Paris{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('style.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+    <header>
+        <h1>Blog</h1>
+    </header>
+    <section class="container">
+        <article class="media">
+            <picture class="media-object">
+                <source media="(max-width: 767px)"
+                        sizes="(max-width: 1534px) 100vw, 1534px"
+                        srcset="
+                            images/castle_c_scale,w_750.jpg 750w,
+                            images/castle_c_scale,w_864.jpg 864w,
+                            images/castle_c_scale,w_988.jpg 988w,
+                            images/castle_c_scale,w_1101.jpg 1101w,
+                            images/castle_c_scale,w_1188.jpg 1188w,
+                            images/castle_c_scale,w_1199.jpg 1199w,
+                            images/castle_c_scale,w_1381.jpg 1381w,
+                            images/castle_c_scale,w_1456.jpg 1456w,
+                            images/castle_c_scale,w_1437.jpg 1437w,
+                            images/castle_c_scale,w_1534.jpg 1534w
+                ">
+                <source media="(min-width: 768px) and (max-width: 1199px)"
+                        sizes="(max-width: 2400px) 50vw, 1200px"
+                        srcset="
+                            images/castle_c_scale,w_384.jpg 384w,
+                            images/castle_c_scale,w_535.jpg 535w,
+                            images/castle_c_scale,w_711.jpg 711w,
+                            images/castle_c_scale,w_769.jpg 769w,
+                            images/castle_c_scale,w_846.jpg 846w,
+                            images/castle_c_scale,w_897.jpg 897w,
+                            images/castle_c_scale,w_1072.jpg 1072w,
+                            images/castle_c_scale,w_1093.jpg 1093w,
+                            images/castle_c_scale,w_1155.jpg 1155w,
+                            images/castle_c_scale,w_1200.jpg 1200w
+                ">
+                <img
+                        sizes="(max-width: 4096px) 50vw, 2048px"
+                        srcset="
+                            images/castle_c_scale,w_600.jpg 600w,
+                            images/castle_c_scale,w_845.jpg 845w,
+                            images/castle_c_scale,w_1028.jpg 1028w,
+                            images/castle_c_scale,w_1376.jpg 1376w,
+                            images/castle_c_scale,w_1465.jpg 1465w,
+                            images/castle_c_scale,w_1589.jpg 1589w,
+                            images/castle_c_scale,w_1732.jpg 1732w,
+                            images/castle_c_scale,w_1863.jpg 1863w,
+                            images/castle_c_scale,w_2048.jpg 2048w
+                        "
+                        src="images/castle_c_scale,w_2048.jpg"
+                        alt="">
+            </picture>
+            <div class="media-body">
+                <h3 class="media-heading">Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus hic impedit ipsa nesciunt numquam! Atque aut beatae ea facere impedit quia repellendus, tenetur ut? Distinctio, excepturi, exercitationem! Consequatur, eveniet, quam!</p>
+            </div>
+        </article>
+        <article class="media">
+            <picture class="media-object">
+                <source media="(max-width: 767px)"
+                        sizes="(max-width: 1534px) 100vw, 1534px"
+                        srcset="
+                            images/castle_c_scale,w_750.jpg 750w,
+                            images/castle_c_scale,w_864.jpg 864w,
+                            images/castle_c_scale,w_988.jpg 988w,
+                            images/castle_c_scale,w_1101.jpg 1101w,
+                            images/castle_c_scale,w_1188.jpg 1188w,
+                            images/castle_c_scale,w_1199.jpg 1199w,
+                            images/castle_c_scale,w_1381.jpg 1381w,
+                            images/castle_c_scale,w_1456.jpg 1456w,
+                            images/castle_c_scale,w_1437.jpg 1437w,
+                            images/castle_c_scale,w_1534.jpg 1534w
+                ">
+                <source media="(min-width: 768px) and (max-width: 1199px)"
+                        sizes="(max-width: 2400px) 50vw, 1200px"
+                        srcset="
+                            images/castle_c_scale,w_384.jpg 384w,
+                            images/castle_c_scale,w_535.jpg 535w,
+                            images/castle_c_scale,w_711.jpg 711w,
+                            images/castle_c_scale,w_769.jpg 769w,
+                            images/castle_c_scale,w_846.jpg 846w,
+                            images/castle_c_scale,w_897.jpg 897w,
+                            images/castle_c_scale,w_1072.jpg 1072w,
+                            images/castle_c_scale,w_1093.jpg 1093w,
+                            images/castle_c_scale,w_1155.jpg 1155w,
+                            images/castle_c_scale,w_1200.jpg 1200w
+                ">
+                <img
+                        sizes="(max-width: 4096px) 50vw, 2048px"
+                        srcset="
+                            images/castle_c_scale,w_600.jpg 600w,
+                            images/castle_c_scale,w_845.jpg 845w,
+                            images/castle_c_scale,w_1028.jpg 1028w,
+                            images/castle_c_scale,w_1376.jpg 1376w,
+                            images/castle_c_scale,w_1465.jpg 1465w,
+                            images/castle_c_scale,w_1589.jpg 1589w,
+                            images/castle_c_scale,w_1732.jpg 1732w,
+                            images/castle_c_scale,w_1863.jpg 1863w,
+                            images/castle_c_scale,w_2048.jpg 2048w
+                        "
+                        src="images/castle_c_scale,w_2048.jpg"
+                        alt="">
+            </picture>
+            <div class="media-body">
+                <h3 class="media-heading">Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus hic impedit ipsa nesciunt numquam! Atque aut beatae ea facere impedit quia repellendus, tenetur ut? Distinctio, excepturi, exercitationem! Consequatur, eveniet, quam!</p>
+            </div>
+        </article>
+        <article class="media">
+            <picture class="media-object">
+                <source media="(max-width: 767px)"
+                        sizes="(max-width: 1534px) 100vw, 1534px"
+                        srcset="
+                            images/castle_c_scale,w_750.jpg 750w,
+                            images/castle_c_scale,w_864.jpg 864w,
+                            images/castle_c_scale,w_988.jpg 988w,
+                            images/castle_c_scale,w_1101.jpg 1101w,
+                            images/castle_c_scale,w_1188.jpg 1188w,
+                            images/castle_c_scale,w_1199.jpg 1199w,
+                            images/castle_c_scale,w_1381.jpg 1381w,
+                            images/castle_c_scale,w_1456.jpg 1456w,
+                            images/castle_c_scale,w_1437.jpg 1437w,
+                            images/castle_c_scale,w_1534.jpg 1534w
+                ">
+                <source media="(min-width: 768px) and (max-width: 1199px)"
+                        sizes="(max-width: 2400px) 50vw, 1200px"
+                        srcset="
+                            images/castle_c_scale,w_384.jpg 384w,
+                            images/castle_c_scale,w_535.jpg 535w,
+                            images/castle_c_scale,w_711.jpg 711w,
+                            images/castle_c_scale,w_769.jpg 769w,
+                            images/castle_c_scale,w_846.jpg 846w,
+                            images/castle_c_scale,w_897.jpg 897w,
+                            images/castle_c_scale,w_1072.jpg 1072w,
+                            images/castle_c_scale,w_1093.jpg 1093w,
+                            images/castle_c_scale,w_1155.jpg 1155w,
+                            images/castle_c_scale,w_1200.jpg 1200w
+                ">
+                <img
+                        sizes="(max-width: 4096px) 50vw, 2048px"
+                        srcset="
+                            images/castle_c_scale,w_600.jpg 600w,
+                            images/castle_c_scale,w_845.jpg 845w,
+                            images/castle_c_scale,w_1028.jpg 1028w,
+                            images/castle_c_scale,w_1376.jpg 1376w,
+                            images/castle_c_scale,w_1465.jpg 1465w,
+                            images/castle_c_scale,w_1589.jpg 1589w,
+                            images/castle_c_scale,w_1732.jpg 1732w,
+                            images/castle_c_scale,w_1863.jpg 1863w,
+                            images/castle_c_scale,w_2048.jpg 2048w
+                        "
+                        src="images/castle_c_scale,w_2048.jpg"
+                        alt="">
+            </picture>
+            <div class="media-body">
+                <h3 class="media-heading">Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus hic impedit ipsa nesciunt numquam! Atque aut beatae ea facere impedit quia repellendus, tenetur ut? Distinctio, excepturi, exercitationem! Consequatur, eveniet, quam!</p>
+            </div>
+        </article>
+    </section>
+
+    {% block javascripts %}
+        <script type="text/javascript">
+            let getCurrentSrc = function () {
+                // let img = document.querySelector('img');
+                // document.querySelector('#loaded-img-path').textContent = img.currentSrc;
+                //
+                // let picture = document.querySelector('picture img')
+                // document.querySelector('#loaded-picture-path').textContent = picture.currentSrc;
+            }
+
+            window.addEventListener('resize', getCurrentSrc);
+            window.addEventListener('load', getCurrentSrc);
+        </script>
+    {% endblock %}
+    </body>
+</html>
