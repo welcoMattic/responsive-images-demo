@@ -1,0 +1,29 @@
+jb_phumbor:
+    server:
+        url: //media.sflive-demo.test
+        secret: ThumborSecureKey
+    transformations:
+        article_384:
+            fit_in: { width: 384, height: 255 }
+        article_600:
+            fit_in: { width: 600, height: 399 }
+        article_750:
+            fit_in: { width: 750, height: 498 }
+        article_785:
+            fit_in: { width: 785, height: 522 }
+        article_1026:
+            fit_in: { width: 1026, height: 682 }
+        article_1131:
+            fit_in: { width: 1131, height: 751 }
+        article_1166:
+            fit_in: { width: 1166, height: 775 }
+        article_1200:
+            fit_in: { width: 1200, height: 798 }
+        article_1415:
+            fit_in: { width: 1415, height: 940 }
+        article_1534:
+            fit_in: { width: 1534, height: 1019 }
+        article_1585:
+            fit_in: { width: 1585, height: 1053 }
+        article_1920:
+            fit_in: { width: 1920, height: 1276 }

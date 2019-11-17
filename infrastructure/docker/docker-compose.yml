@@ -1,0 +1,83 @@
+version: '3'
+
+volumes:
+    mysql-data: {}
+
+services:
+    router:
+        build: services/router
+        ports:
+            - "80:80"
+            - "443:443"
+            - "8080:8080"
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        # # Use network alias if you need to access a container via a specific
+        # # host by using the routing from another container
+        # networks:
+        #     default:
+        #         aliases:
+        #             - api.app.test
+        labels:
+            - "traefik.enable=false"
+
+    frontend:
+        build: services/frontend
+        depends_on:
+            - mysql
+        volumes:
+            - "../../${PROJECT_DIRECTORY}:/var/www:cached"
+        labels:
+            - "traefik.port=80"
+            - "traefik.frontend.entryPoints=https"
+            - "traefik.frontend.rule=Host:${PROJECT_HOSTNAMES}"
+
+    mysql:
+        build: services/mysql
+        volumes:
+            - "mysql-data:/var/lib/mysql"
+        labels:
+            - "traefik.enable=false"
+        ports:
+          - "3306:3306"
+
+    media:
+        image: apsl/thumbor:latest
+        environment:
+            - ALLOWED_SOURCES=['sflive-demo.test']
+            - URL_SIGNER=libthumbor.url_signers.base64_hmac_sha1
+            - SECURITY_KEY=ThumborSecureKey
+            - ALLOW_UNSAFE_URL=True
+            - ALLOW_OLD_URLS=True
+            - FILE_LOADER_ROOT_PATH=/usr/share/media
+            - LOADER=thumbor.loaders.file_loader
+            - STORAGE_EXPIRATION_SECONDS=2592000
+            - STORES_CRYPTO_KEY_FOR_EACH_IMAGE=False
+            - FILE_STORAGE_ROOT_PATH=/tmp/thumbor/file_storage
+            - JPEGTRAN_PATH=/usr/bin/jpegtran
+            - PROGRESSIVE_JPEG=True
+            - ALLOW_ANIMATED_GIFS=True
+            - FFMPEG_PATH=/usr/bin/ffmpeg
+            - FILTERS=['thumbor.filters.brightness', 'thumbor.filters.contrast', 'thumbor.filters.rgb', 'thumbor.filters.round_corner', 'thumbor.filters.quality', 'thumbor.filters.noise', 'thumbor.filters.watermark', 'thumbor.filters.equalize', 'thumbor.filters.fill', 'thumbor.filters.sharpen', 'thumbor.filters.strip_icc', 'thumbor.filters.frame', 'thumbor.filters.grayscale', 'thumbor.filters.rotate', 'thumbor.filters.format', 'thumbor.filters.max_bytes', 'thumbor.filters.convolution', 'thumbor.filters.blur', 'thumbor.filters.extract_focal', 'thumbor.filters.no_upscale']
+            - RESULT_STORAGE_EXPIRATION_SECONDS=0
+            - RESULT_STORAGE_FILE_STORAGE_ROOT_PATH=/tmp/thumbor/result_storage
+            - RESULT_STORAGE_STORES_UNSAFE=False
+            - REDIS_QUEUE_SERVER_HOST=redis
+            - REDIS_QUEUE_SERVER_PORT=6379
+            - REDIS_QUEUE_SERVER_DB=0
+            - REDIS_QUEUE_SERVER_PASSWORD=None
+            - USE_GIFSICLE_ENGINE=True
+            - AUTO_WEBP=True
+        volumes:
+            - ../../public/thumbor_media:/usr/share/media
+        links:
+            - media-redis:redis
+        labels:
+            - "traefik.port=8000"
+            - "traefik.frontend.entryPoints=https"
+            - "traefik.frontend.rule=Host:media.sflive-demo.test"
+
+    media-redis:
+        image: redis:3-alpine
+        labels:
+            - "traefik.enable=false"
