@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block h1 %}Glide{% endblock %}
+{% from "thumbor/picture.html.twig" import picture %}
 
 {% block body %}
     <article class="media">
-        {{ include('thumbor/picture.html.twig', { imgPath: 'elephant.jpg' }) }}
+        {{ picture('elephant.jpg') }}
         <div class="media-body">
             <h3 class="media-heading">Lorem ipsum</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus hic impedit ipsa nesciunt numquam! Atque aut beatae ea facere impedit quia repellendus, tenetur ut? Distinctio, excepturi, exercitationem! Consequatur, eveniet, quam!</p>

@@ -1,26 +1,29 @@
-<picture class="media-object">
-    <source media="(max-width: 767px)"
-            sizes="(max-width: 1534px) 100vw, 1534px"
-            srcset="
+{% macro picture(imgPath) %}
+    <picture class="media-object">
+        <source media="(max-width: 767px)"
+                sizes="(max-width: 1534px) 100vw, 1534px"
+                srcset="
                 {{ thumbor(imgPath, 'article_750') }} 750w,
                 {{ thumbor(imgPath, 'article_1131') }} 1131w,
                 {{ thumbor(imgPath, 'article_1415') }} 1415w,
                 {{ thumbor(imgPath, 'article_1534') }} 1534w">
 
-    <source media="(min-width: 768px) and (max-width: 1199px)"
-            sizes="(max-width: 2400px) 50vw, 1200px"
-            srcset="
+        <source media="(min-width: 768px) and (max-width: 1199px)"
+                sizes="(max-width: 2400px) 50vw, 1200px"
+                srcset="
                 {{ thumbor(imgPath, 'article_384') }} 384w,
                 {{ thumbor(imgPath, 'article_785') }} 785w,
                 {{ thumbor(imgPath, 'article_1026') }} 1026w,
                 {{ thumbor(imgPath, 'article_1200') }} 1200w">
 
-    <img id="test" sizes="(max-width: 3840px) 50vw, 1920px"
-         srcset="
+        <img id="test" sizes="(max-width: 3840px) 50vw, 1920px"
+             srcset="
              {{ thumbor(imgPath, 'article_600') }} 600w,
              {{ thumbor(imgPath, 'article_1166') }} 1166w,
              {{ thumbor(imgPath, 'article_1585') }} 1585w,
              {{ thumbor(imgPath, 'article_1920') }} 1920w"
-         src="{{ thumbor(imgPath, 'article_1920') }}"
-         alt="">
-</picture>
+             src="{{ thumbor(imgPath, 'article_1920') }}"
+             alt="">
+    </picture>
+
+{% endmacro %}

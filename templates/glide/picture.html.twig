@@ -1,26 +1,29 @@
-<picture class="media-object">
-    <source media="(max-width: 767px)"
-            sizes="(max-width: 1534px) 100vw, 1534px"
-            srcset="
+{% macro picture(imgPath) %}
+    <picture class="media-object">
+        <source media="(max-width: 767px)"
+                sizes="(max-width: 1534px) 100vw, 1534px"
+                srcset="
                 {{ path('glide', { filterName: 'article_750', imageName: imgPath }) }} 750w,
                 {{ path('glide', { filterName: 'article_1131', imageName: imgPath }) }} 1131w,
                 {{ path('glide', { filterName: 'article_1415', imageName: imgPath }) }} 1415w,
                 {{ path('glide', { filterName: 'article_1534', imageName: imgPath }) }} 1534w">
 
-    <source media="(min-width: 768px) and (max-width: 1199px)"
-            sizes="(max-width: 2400px) 50vw, 1200px"
-            srcset="
+        <source media="(min-width: 768px) and (max-width: 1199px)"
+                sizes="(max-width: 2400px) 50vw, 1200px"
+                srcset="
                 {{ path('glide', { filterName: 'article_384', imageName: imgPath }) }} 384w,
                 {{ path('glide', { filterName: 'article_785', imageName: imgPath }) }} 785w,
                 {{ path('glide', { filterName: 'article_1026', imageName: imgPath }) }} 1026w,
                 {{ path('glide', { filterName: 'article_1200', imageName: imgPath }) }} 1200w">
 
-    <img id="test" sizes="(max-width: 3840px) 50vw, 1920px"
-         srcset="
+        <img id="test" sizes="(max-width: 3840px) 50vw, 1920px"
+             srcset="
              {{ path('glide', { filterName: 'article_600', imageName: imgPath }) }} 600w,
              {{ path('glide', { filterName: 'article_1166', imageName: imgPath }) }} 1166w,
              {{ path('glide', { filterName: 'article_1585', imageName: imgPath }) }} 1585w,
              {{ path('glide', { filterName: 'article_1920', imageName: imgPath }) }} 1920w"
-         src="{{ path('glide', { filterName: 'article_1920', imageName: imgPath }) }}"
-         alt="">
-</picture>
+             src="{{ path('glide', { filterName: 'article_1920', imageName: imgPath }) }}"
+             alt="">
+    </picture>
+
+{% endmacro %}
