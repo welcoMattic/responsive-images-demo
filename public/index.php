@@ -12,8 +12,12 @@ if ($_SERVER['APP_DEBUG']) {
     Debug::enable();
 }
 
-if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+if ($trustedProxies = $request->server->get('CC_REVERSE_PROXY_IPS')) {
+    // trust *all* requests
+    Request::setTrustedProxies(array_merge(['127.0.0.1'], explode(',', $trustedProxies)),
+
+    // trust *all* "X-Forwarded-*" headers
+    Request::HEADER_X_FORWARDED_ALL);
 }
 
 if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
