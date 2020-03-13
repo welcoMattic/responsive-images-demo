@@ -6,18 +6,18 @@
 
 > Add `sflive-demo.test` and `media.sflive-demo.test` to your hosts file
 
-Install Python virtualenv to be able to use fabric commands to control easily the Docker stack
+Install Python virtualenv to be able to use invoke commands to control easily the Docker stack
 
 `$ pipenv install`
 
-Enter in pipenv shell to get access to `fab` command
+Enter in pipenv shell to get access to `inv` command
 
 `$ pipenv shell`
 
-If it's your first install of Starfleet, run
+If it's your first install of this demo, run
 
-`$ fab start`
+`$ inv start`
 
 If not, just up the containers with
 
-`$ fab up`
+`$ inv up`
